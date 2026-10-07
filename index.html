@@ -59,7 +59,7 @@ nav a:hover{opacity:1;color:#fff}
 .slide.leaving .bg{opacity:0;translate:calc(var(--d) * var(--ix) * -1) 0}
 .slide.active .bg,.slide.leaving .bg{animation:kb var(--kb,8.6s) linear both}
 @keyframes kb{from{scale:1}to{scale:1.13}}
-.hero.paused .slide .bg,.hero.offscreen .slide .bg{animation-play-state:paused}
+.hero.offscreen .slide .bg{animation-play-state:paused}
 .slide .hero-inner>*{opacity:0;translate:calc(var(--d) * var(--tx) * -1) 0;transition:translate 1.05s cubic-bezier(.65,0,.2,1) var(--dl,0s),opacity .6s ease calc(var(--dl,0s) + .3s)}
 .slide .hero-inner>:nth-child(1){--dl:0s}
 .slide .hero-inner>:nth-child(2){--dl:.07s}
@@ -630,7 +630,7 @@ document.querySelectorAll("[data-reuse]").forEach(function(el){var s=document.qu
     });
     num.textContent=("0"+(n+1)).slice(-2); nm.textContent=names[n];
   }
-  function restart(){ clearTimeout(timer); if(reduce||document.hidden||hero.classList.contains("paused")||hero.classList.contains("offscreen")) return; timer=setTimeout(function(){ go(cur+1,1); },DUR); }
+  function restart(){ clearTimeout(timer); if(reduce||document.hidden||hero.classList.contains("offscreen")) return; timer=setTimeout(function(){ go(cur+1,1); },DUR); }
   var slidesEl=hero.querySelector(".slides");
   function go(n,dir){
     n=(n+slides.length)%slides.length;
@@ -645,8 +645,6 @@ document.querySelectorAll("[data-reuse]").forEach(function(el){var s=document.qu
   document.getElementById("next").addEventListener("click",function(){ go(cur+1,1); });
   document.getElementById("prev").addEventListener("click",function(){ go(cur-1,-1); });
   dots.forEach(function(d,i){ d.addEventListener("click",function(){ go(i); }); });
-  hero.addEventListener("mouseenter",function(){ hero.classList.add("paused"); clearTimeout(timer); });
-  hero.addEventListener("mouseleave",function(){ hero.classList.remove("paused"); setDots(cur); restart(); });
   document.addEventListener("visibilitychange",function(){ if(document.hidden){ clearTimeout(timer); } else { setDots(cur); restart(); } });
   hero.addEventListener("keydown",function(e){ if(e.key==="ArrowRight") go(cur+1,1); if(e.key==="ArrowLeft") go(cur-1,-1); });
   var sx=null;
