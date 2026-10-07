@@ -45,7 +45,7 @@ nav a:hover{opacity:1;color:#fff}
 /* hero */
 .hero{position:relative;overflow:hidden;background:#0b1620;touch-action:pan-y}
 .slides{display:grid}
-.slide{grid-area:1/1;position:relative;min-height:92vh;display:flex;align-items:center;opacity:0;visibility:hidden;transform:translateX(0);transition:transform 1s cubic-bezier(.65,0,.2,1),opacity .9s ease,visibility 0s linear 1s}
+.slide{grid-area:1/1;position:relative;min-height:92vh;display:flex;align-items:stretch;opacity:0;visibility:hidden;transform:translateX(0);transition:transform 1s cubic-bezier(.65,0,.2,1),opacity .9s ease,visibility 0s linear 1s}
 .slide.active{opacity:1;visibility:visible;transition:transform 1s cubic-bezier(.65,0,.2,1),opacity .9s ease,visibility 0s}
 .slide.pre-r{transform:translateX(14%);opacity:0;visibility:visible}
 .slide.pre-l{transform:translateX(-14%);opacity:0;visibility:visible}
@@ -55,7 +55,9 @@ nav a:hover{opacity:1;color:#fff}
 .slide.active .bg{transform:scale(1)}
 .slide .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,32,.55) 0%,rgba(12,22,32,0) 26%,rgba(12,22,32,0) 66%,var(--ink) 100%)}
 .hero .snow{z-index:4;pointer-events:none;position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(0deg,var(--ink) 8%,rgba(12,22,32,0))}
-.hero-inner{position:relative;z-index:5;width:100%;padding-top:150px;padding-bottom:170px}
+.hero-inner{position:relative;z-index:5;width:100%;padding-top:150px;padding-bottom:178px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start}
+.hero-cta{position:absolute;left:0;right:0;bottom:98px;z-index:8;pointer-events:none}
+.hero-cta .cta{margin-top:0;pointer-events:auto}
 .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--olive);margin-bottom:18px}
 h1{font-size:clamp(36px,4.7vw,66px);line-height:1.04;letter-spacing:-1.5px;font-weight:800;color:#fff;max-width:600px}
 h1 em{font-style:normal;color:var(--ice)}
@@ -263,9 +265,10 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
   .split,.story .grid{grid-template-columns:1fr;gap:30px}
   .routes,.cg{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr 1fr}
-  .slide{display:block;min-height:0}
+  .slide{display:flex;flex-direction:column;align-items:stretch;min-height:0}
   .slide .bg{position:relative;width:100%;height:78vw;min-height:280px;background-position:var(--mp,50% 50%);transform:none;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
-  .hero-inner{padding-top:6px;padding-bottom:150px}
+  .hero-inner{flex:1;padding-top:6px;padding-bottom:22px;justify-content:flex-end}
+  .hero-cta{position:static;padding:4px 0 96px;pointer-events:auto}
   .hero-ctl{bottom:18px}
   .ctl-label{display:none}
   .arrow{width:42px;height:42px}
@@ -327,10 +330,6 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">Australian made &middot; Built for Europe&#39;s mountains</span>
         <h1>Fast on. Fast off.<br><em>From the Alps to the Arctic.</em></h1>
         <p class="lead">Quick-release awning hitches and brackets that let you take your awning off in seconds, so the cold, the wind and the snow never get the better of your gear.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#products">Shop the range</a>
-        </div>
       </div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 6">
@@ -340,10 +339,6 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">The hardware</span>
         <h1>Built tough.<br><em>Made to come off fast.</em></h1>
         <p class="lead">Quick-release hitches, brackets and accessory plates for awnings, rooftop tents and recovery boards. Australian made.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#products">See the range</a>
-        </div>
       </div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 6">
@@ -353,10 +348,6 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">The Alps</span>
         <h1>Above the treeline.<br><em>Awning off in seconds.</em></h1>
         <p class="lead">When the wind picks up at altitude, pull the quick-release hitch and keep your awning safe. Put it back when the sky clears.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#routes">Alpine routes</a>
-        </div>
       </div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 6">
@@ -366,10 +357,6 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">Nordic winter</span>
         <h1>Long nights.<br><em>Short setup.</em></h1>
         <p class="lead">Low sun, hard frost and cold hands. A tool-free hitch means less time outside the warm cab and more time on the road north.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#cold">Why it works in the cold</a>
-        </div>
       </div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 6">
@@ -379,10 +366,6 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">Iceland and the high north</span>
         <h1>Wide open skies.<br><em>Pack away in seconds.</em></h1>
         <p class="lead">Frozen plains, big weather and long horizons. Take the awning off before the front rolls in.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#products">See the range</a>
-        </div>
       </div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 6">
@@ -392,14 +375,14 @@ footer{background:#081018;border-top:1px solid var(--line);padding:56px 0 32px;m
         <span class="eyebrow">Built for the cold side of the mountains</span>
         <h1>Snow, wind and low sun.<br><em>Always ready.</em></h1>
         <p class="lead">Powder-coated stainless steel and UV-stabilised nylon: no rattle, no rust, season after season.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
-          <a class="btn btn-ghost" href="#cold">Built for the cold</a>
-        </div>
       </div>
     </div>
   </div>
 
+  <div class="hero-cta"><div class="wrap"><div class="cta">
+    <a class="btn btn-primary" href="#dealers">Find a dealer near you</a>
+    <a class="btn btn-ghost" href="#cold">Why it works in the cold</a>
+  </div></div></div>
   <div class="hero-ctl"><div class="wrap ctl-row">
     <div class="ctl-left"><div class="dots" role="tablist" aria-label="Hero slides"><button class="dot on" type="button" role="tab" aria-label="Slide 1: Alps to Arctic"><i></i></button><button class="dot" type="button" role="tab" aria-label="Slide 2: The hardware"><i></i></button><button class="dot" type="button" role="tab" aria-label="Slide 3: The Alps"><i></i></button><button class="dot" type="button" role="tab" aria-label="Slide 4: Nordic winter"><i></i></button><button class="dot" type="button" role="tab" aria-label="Slide 5: Iceland"><i></i></button><button class="dot" type="button" role="tab" aria-label="Slide 6: Cold side"><i></i></button></div><span class="ctl-label"><b id="ctlNum">01</b> / 06 &nbsp; <span id="ctlName">Alps to Arctic</span></span></div>
     <div class="ctl-arrows"><button class="arrow" id="prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5l-7 7 7 7"/></svg></button><button class="arrow" id="next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5l7 7-7 7"/></svg></button></div>
